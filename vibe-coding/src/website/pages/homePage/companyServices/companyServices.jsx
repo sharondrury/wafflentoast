@@ -54,7 +54,7 @@ const CompanyServices = ({ onGetInTouch }) => {
   }, [])
 
   return (
-    <section className="company-services">
+    <section className="company-services" id="company-services">
       <div className="company-services__container">
         <div className="company-services__left">
           <h2 className="company-services__heading">

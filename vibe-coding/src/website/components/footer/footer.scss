@@ -99,10 +99,10 @@
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: var(--right-color);
+    color: var(--company-colour);
   }
 }
 

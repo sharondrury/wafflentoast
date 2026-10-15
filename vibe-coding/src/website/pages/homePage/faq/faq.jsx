@@ -10,7 +10,7 @@ const Faq = () => {
   }
 
   return (
-    <section className="faq">
+    <section className="faq" id="faq">
       <div className="faq__decorations" aria-hidden="true">
         <span className="faq__decoration faq__decoration--tl">?</span>
         <span className="faq__decoration faq__decoration--bl">?</span>

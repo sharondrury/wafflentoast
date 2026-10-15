@@ -13,7 +13,7 @@ import "primeicons/primeicons.css";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
-      <BrowserRouter basename="/waffle-n-toast-vibe-coding/">
+      <BrowserRouter basename="/wafflentoast/">
         <App />
       </BrowserRouter>
     </HelmetProvider>

@@ -10,7 +10,7 @@ const PricingPage = () => {
         <title>Pricing | Waffle &amp; Toast</title>
         <meta name="description" content="Transparent pricing for custom web design and development. Find the right package for your business." />
         <meta property="og:title" content="Pricing | Waffle &amp; Toast" />
-        <meta property="og:url" content="https://sharondrury.github.io/waffle-n-toast-vibe-coding/pricing" />
+        <meta property="og:url" content="https://sharondrury.github.io/wafflentoast/pricing" />
       </Helmet>
       <NavBar />
       <main style={{

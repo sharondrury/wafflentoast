@@ -8,7 +8,7 @@ const ProjectsPage = () => {
         <title>Projects | Waffle &amp; Toast</title>
         <meta name="description" content="Explore the websites and projects we've built for our clients." />
         <meta property="og:title" content="Projects | Waffle &amp; Toast" />
-        <meta property="og:url" content="https://sharondrury.github.io/waffle-n-toast-vibe-coding/projects" />
+        <meta property="og:url" content="https://sharondrury.github.io/wafflentoast/projects" />
       </Helmet>
       <NavBar />
       <main style={{

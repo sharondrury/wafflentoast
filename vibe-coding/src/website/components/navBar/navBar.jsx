@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import GetInTouchModal from '../getInTouchModal/getInTouchModal'
+import { SECTION_LINKS } from './sectionLinks'
 import './navBar.scss'
 
 const NavBar = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState(null)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 0)
@@ -14,7 +19,55 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Highlight the link for whichever section sits in the upper-middle of the viewport
+  useEffect(() => {
+    if (!isHome) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    )
+    SECTION_LINKS.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [isHome])
+
+  // Arriving from another page with a section to scroll to
+  useEffect(() => {
+    const target = location.state?.scrollTo
+    if (!isHome || !target) return
+    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
+  }, [isHome, location.state])
+
   const closeMenu = () => setMenuOpen(false)
+
+  const handleSectionClick = (e, id) => {
+    e.preventDefault()
+    closeMenu()
+    if (!isHome) {
+      navigate('/', { state: { scrollTo: id } })
+      return
+    }
+    setActiveSection(id)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const renderSectionLinks = () =>
+    SECTION_LINKS.map(({ id, label }) => (
+      <a
+        key={id}
+        href={`#${id}`}
+        className={activeSection === id ? 'active' : undefined}
+        onClick={(e) => handleSectionClick(e, id)}
+      >
+        {label}
+      </a>
+    ))
 
   return (
     <>
@@ -25,9 +78,7 @@ const NavBar = () => {
           </NavLink>
 
           <div className="nav__links">
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/pricing">Pricing</NavLink>
+            {renderSectionLinks()}
           </div>
 
           <div className="nav__right">
@@ -56,9 +107,7 @@ const NavBar = () => {
         <button className="nav__panel-close" onClick={closeMenu} aria-label="Close menu">
           <i className="fa-solid fa-xmark"></i>
         </button>
-        <NavLink to="/about" onClick={closeMenu}>About</NavLink>
-        <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
-        <NavLink to="/pricing" onClick={closeMenu}>Pricing</NavLink>
+        {renderSectionLinks()}
       </div>
 
       <GetInTouchModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

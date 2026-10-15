@@ -4,6 +4,21 @@
   padding: 100px 0;
 }
 
+.showcase__inner {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.showcase__heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  width: 750px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
 .showcase__carousel {
   overflow: hidden;
   cursor: grab;
@@ -56,6 +71,14 @@
 @media (max-width: 1000px) {
   .showcase {
     padding: 60px 0;
+  }
+
+  .showcase__inner {
+    padding: 0 var(--mobile-gutter);
+  }
+
+  .showcase__heading {
+    width: 100%;
   }
 
   .showcase__card {

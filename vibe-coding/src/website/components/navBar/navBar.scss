@@ -51,16 +51,43 @@
   transform: translateX(-50%);
 
   a {
+    position: relative;
     text-decoration: none;
     padding: 0.2rem 2rem;
     color: var(--white);
     font-family: var(--font-body);
     font-weight: 500;
-    transition: opacity 0.2s;
+    transition: color 0.3s ease;
 
-    &:hover,
-    &.active {
-      opacity: 0.8;
+    // Underline sits under the text only, inside the side padding
+    &::after {
+      left: 2rem;
+      right: 2rem;
+    }
+  }
+}
+
+// Orange text + underline that slides in left to right on hover / active section
+.nav__links a,
+.nav__panel a {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    height: 2px;
+    background: var(--company-colour);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover,
+  &.active {
+    color: var(--company-colour);
+    opacity: 1;
+
+    &::after {
+      transform: scaleX(1);
     }
   }
 }
@@ -110,17 +137,19 @@
   }
 
   a {
+    position: relative;
+    align-self: flex-start;
     color: var(--white);
     text-decoration: none;
     font-family: var(--font-body);
     font-size: 1.25rem;
     font-weight: 600;
     opacity: 0.8;
-    transition: opacity 0.2s;
+    transition: color 0.3s ease, opacity 0.2s;
 
-    &:hover,
-    &.active {
-      opacity: 1;
+    &::after {
+      left: 0;
+      right: 0;
     }
   }
 }

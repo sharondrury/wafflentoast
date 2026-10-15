@@ -19,7 +19,7 @@ const HomePage = () => {
         <meta name="description" content="Custom websites built with passion. Waffle &amp; Toast creates beautiful, fast websites for small businesses and creatives." />
         <meta property="og:title" content="Waffle &amp; Toast | Vibe Coding" />
         <meta property="og:description" content="Custom websites built with passion. Waffle &amp; Toast creates beautiful, fast websites for small businesses and creatives." />
-        <meta property="og:url" content="https://sharondrury.github.io/waffle-n-toast-vibe-coding/" />
+        <meta property="og:url" content="https://sharondrury.github.io/wafflentoast/" />
       </Helmet>
       <NavBar />
       <main className="homePage">

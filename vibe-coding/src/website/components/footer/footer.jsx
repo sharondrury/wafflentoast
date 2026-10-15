@@ -1,4 +1,5 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { SECTION_LINKS } from '../navBar/sectionLinks'
 import './footer.scss'
 
 function FacebookIcon() {
@@ -44,6 +45,16 @@ const Footer = () => {
     }
   }
 
+  // Same behaviour as the nav: scroll on home, otherwise go home and let the nav scroll
+  const handleSectionClick = (e, id) => {
+    e.preventDefault()
+    if (pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/', { state: { scrollTo: id } })
+    }
+  }
+
   return (
     <footer className="footer-wrapper">
       <div className="footer">
@@ -62,26 +73,19 @@ const Footer = () => {
 
         <div className="footer__col-two">
           <h3 className=" footer-header">Explore</h3>
-          <button
-            className="footer__nav-link"
-            onClick={handleHome}
-          >
+          <button className="footer__nav-link" onClick={handleHome}>
             Home
           </button>
-          <Link className="footer__nav-link" to="/projects">
-            Projects
-          </Link>
-          <Link className="footer__nav-link" to="/pricing">
-            Pricing
-          </Link>
-          <a
-            className="footer__nav-link"
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Blog
-          </a>
+          {SECTION_LINKS.map(({ id, label }) => (
+            <a
+              key={id}
+              className="footer__nav-link"
+              href={`#${id}`}
+              onClick={(e) => handleSectionClick(e, id)}
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
         <div className="footer__col-three">
@@ -96,7 +100,7 @@ const Footer = () => {
               <FacebookIcon />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/i_am_waffle_and_toast/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -114,7 +118,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="footer__copyright">© Copyright Waffle & Toast 2026</p>
+      <p className="footer__copyright">© Copyright Waffle & Toast {new Date().getFullYear()}</p>
     </footer>
   );
 }

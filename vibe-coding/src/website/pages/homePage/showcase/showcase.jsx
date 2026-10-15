@@ -3,11 +3,18 @@ import { thumbnailImage } from './data.json'
 import ModalShowcase from './modalShowcase/modalShowcase'
 import img1 from '../../../../assets/images/gs-website.png'
 import img2 from '../../../../assets/images/gt-website.png'
-import img3 from '../../../../assets/images/sd-website.png'
-import img4 from '../../../../assets/images/wa-website.png'
+import img3 from '../../../../assets/images/wa-website.png'
+import img4 from '../../../../assets/images/td-website-mobile.png'
+import img5 from "../../../../assets/images/ls-instructions-measurements.png";
 import './showcase.scss'
 
-const IMAGE_MAP = { 'gs-website': img1, 'gt-website': img2, 'sd-website': img3, 'wa-website': img4 }
+const IMAGE_MAP = {
+  "gs-website": img1,
+  "gt-website": img2,
+  "wa-website": img3,
+  "td-website-mobile": img4,
+  "ls-instructions-measurements": img5,
+};
 
 const displayCards = [...thumbnailImage, ...thumbnailImage]
 
@@ -113,7 +120,10 @@ const Showcase = () => {
   }
 
   return (
-    <section className="showcase">
+    <section className="showcase" id="showcase-section">
+      <div className="showcase__inner">
+        <h2 className="showcase__heading">Some projects we've been working on</h2>
+      </div>
       <div
         className="showcase__carousel"
         onMouseEnter={() => setIsPaused(true)}

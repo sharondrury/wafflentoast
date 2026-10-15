@@ -2,19 +2,21 @@
   "thumbnailImage": [
     { "backgroundImage": "gs-website" },
     { "backgroundImage": "gt-website" },
-    { "backgroundImage": "sd-website" },
-    { "backgroundImage": "wa-website" }
+    { "backgroundImage": "td-website-mobile" },
+    { "backgroundImage": "wa-website" },
+    { "backgroundImage": "ls-instructions-measurements" }
   ],
   "modalShowcaseContent": [
-    { "image1": "gs-website", "video2": "guySalmonVideo1", "image3": "sd-website", "heading": "Guy Salmon Consultancy" },
+    { "image1": "gs-website", "video2": "guySalmonVideo1", "image3": "gs-website", "heading": "Guy Salmon Consultancy" },
     { "video1": "gailsTailsVideo1", "image2": "gt-website", "video3": "gailsTailsVideo2", "heading": "Gails Tails" },
-    { "image1": "sd-website", "image2": "sd-website", "image3": "sd-website", "heading": "Sharon Drury Portfolio" },
-    { "image1": "wa-website", "image2": "wa-website", "image3": "wa-website", "heading": "Weather App" }
+    { "image3": "td-website-mobile", "image2": "td-website", "video1": "tropidMobileVideo", "heading": "Tropid Webflow designed and developed" },
+    { "image1": "wa-website", "image2": "wa-website", "image3": "wa-website", "heading": "Weather App" },
+    { "image1": "ls-instructions-front", "image2": "ls-instructions-page1", "image3": "ls-instructions-measurements", "heading": "Dress making instructions" }
   ],
   "clientWebsite": [
     { "name": "Guy Salmon Consultancy", "url": "https://sharondrury.github.io/guy-site/" },
     { "name": "Gails Tails", "url": "https://sharondrury.github.io/gails-tails/" },
-    { "name": "Sharon Drury Portfolio", "url": "https://www.sharondrury.com/" },
+    { "name": "Tropid Webflow designed and developed", "url": "https://tropid-waffle-and-toast.webflow.io/" },
     { "name": "Weather App", "url": "https://www.instagram.com/i_am_waffle_and_toast/?hl=en" }
   ]
 }
