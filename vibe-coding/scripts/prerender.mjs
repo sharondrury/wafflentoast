@@ -7,9 +7,6 @@ const root = resolve(__dirname, '..')
 
 const routes = [
   { path: '/',         file: 'index.html' },
-  { path: '/about',    file: 'about/index.html' },
-  { path: '/projects', file: 'projects/index.html' },
-  { path: '/pricing',  file: 'pricing/index.html' },
 ]
 
 const template = readFileSync(resolve(root, 'dist/index.html'), 'utf-8')

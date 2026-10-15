@@ -74,7 +74,7 @@ const CompanyServices = ({ onGetInTouch }) => {
                 ref={(el) => (cardRefs.current[i] = el)}
               >
                 <div className="company-services__card-icon">
-                  {Icon && <Icon width={32} height={32} />}
+                  {Icon && <Icon width={32} height={32} aria-hidden="true" />}
                 </div>
                 <div className="company-services__card-content">
                   <h3 className="company-services__card-heading">

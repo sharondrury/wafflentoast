@@ -5,9 +5,9 @@ import logoSd from '../../../../assets/images/logoCarousel/sd-logo.png'
 import './companyLogo.scss'
 
 const LOGOS = [
-  { id: 'gails-tails',    src: logoGailsTails,    alt: 'Gails Tails' },
-  { id: 'gs-consultancy', src: logoGsConsultancy, alt: 'Gs Consultancy' },
-  { id: 'sd',             src: logoSd,            alt: 'Sd' },
+  { id: 'gails-tails',    src: logoGailsTails,    alt: 'Gails Tails logo' },
+  { id: 'gs-consultancy', src: logoGsConsultancy, alt: 'Guy Salmon Consultancy logo' },
+  { id: 'sd',             src: logoSd,            alt: 'SD logo' },
 ]
 
 // Repeat enough times so the half-track is always wider than any viewport

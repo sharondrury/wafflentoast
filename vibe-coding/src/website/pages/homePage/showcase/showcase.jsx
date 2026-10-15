@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { thumbnailImage } from './data.json'
+import { thumbnailImage, modalShowcaseContent } from './data.json'
 import ModalShowcase from './modalShowcase/modalShowcase'
 import img1 from '../../../../assets/images/gs-website.png'
 import img2 from '../../../../assets/images/gt-website.png'
@@ -141,7 +141,16 @@ const Showcase = () => {
               className="showcase__card"
               data-color-index={i % thumbnailImage.length}
               style={{ backgroundImage: `url(${IMAGE_MAP[card.backgroundImage]})` }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${modalShowcaseContent[i % thumbnailImage.length]?.heading ?? 'project'} project`}
               onClick={() => handleCardClick(i)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  handleCardClick(i)
+                }
+              }}
             />
           ))}
         </div>

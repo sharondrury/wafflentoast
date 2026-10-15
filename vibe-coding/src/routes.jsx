@@ -1,10 +1,7 @@
 import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
-const HomePage     = lazy(() => import('./website/pages/homePage/homePage'))
-const AboutPage    = lazy(() => import('./website/pages/aboutPage/aboutPage'))
-const ProjectsPage = lazy(() => import('./website/pages/projectsPage/projectsPage'))
-const PricingPage  = lazy(() => import('./website/pages/pricingPage/pricingPage'))
+const HomePage = lazy(() => import('./website/pages/homePage/homePage'))
 
 function AppRoutes() {
   return (
@@ -12,9 +9,8 @@ function AppRoutes() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
+          {/* Old page URLs (/about, /projects, /pricing) and any unknown path go home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </main>

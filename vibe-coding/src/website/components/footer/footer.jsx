@@ -1,4 +1,3 @@
-import { useNavigate, useLocation } from 'react-router-dom'
 import { SECTION_LINKS } from '../navBar/sectionLinks'
 import { BreadSliceIcon, LocationDotIcon, EnvelopeIcon } from '../icons/icons'
 import './footer.scss'
@@ -34,26 +33,13 @@ function LinkedInIcon() {
 }
 
 const Footer = () => {
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
-
   const handleHome = () => {
-    if (pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else {
-      navigate('/')
-      window.scrollTo({ top: 0, behavior: 'instant' })
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // Same behaviour as the nav: scroll on home, otherwise go home and let the nav scroll
   const handleSectionClick = (e, id) => {
     e.preventDefault()
-    if (pathname === '/') {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/', { state: { scrollTo: id } })
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (

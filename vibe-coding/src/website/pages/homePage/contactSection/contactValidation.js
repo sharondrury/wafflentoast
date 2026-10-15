@@ -1,4 +1,4 @@
-export function validateContactForm({ name, companyName, email, message }) {
+export function validateContactForm({ name, email, message }) {
   const errors = {}
   if (!name.trim()) errors.name = 'Name is required.'
   if (!email.trim()) errors.email = 'Email is required.'

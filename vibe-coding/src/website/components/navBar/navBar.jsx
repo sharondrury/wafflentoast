@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import GetInTouchModal from '../getInTouchModal/getInTouchModal'
 import { SECTION_LINKS } from './sectionLinks'
 import { BreadSliceIcon, BarsIcon, MobileButtonIcon, XmarkIcon } from '../icons/icons'
@@ -10,9 +10,6 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState(null)
-  const location = useLocation()
-  const navigate = useNavigate()
-  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 0)
@@ -22,7 +19,6 @@ const NavBar = () => {
 
   // Highlight the link for whichever section sits in the upper-middle of the viewport
   useEffect(() => {
-    if (!isHome) return
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -36,24 +32,13 @@ const NavBar = () => {
       if (el) observer.observe(el)
     })
     return () => observer.disconnect()
-  }, [isHome])
-
-  // Arriving from another page with a section to scroll to
-  useEffect(() => {
-    const target = location.state?.scrollTo
-    if (!isHome || !target) return
-    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
-  }, [isHome, location.state])
+  }, [])
 
   const closeMenu = () => setMenuOpen(false)
 
   const handleSectionClick = (e, id) => {
     e.preventDefault()
     closeMenu()
-    if (!isHome) {
-      navigate('/', { state: { scrollTo: id } })
-      return
-    }
     setActiveSection(id)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -91,7 +76,7 @@ const NavBar = () => {
               <BarsIcon />
             </button>
 
-            <button className="nav__phone" onClick={() => setModalOpen(true)}>
+            <button className="nav__phone" onClick={() => setModalOpen(true)} aria-label="Get in touch">
               <div className="nav__phone-icon">
                 <MobileButtonIcon />
               </div>
