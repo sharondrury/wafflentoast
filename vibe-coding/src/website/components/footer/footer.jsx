@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { SECTION_LINKS } from '../navBar/sectionLinks'
+import { BreadSliceIcon, LocationDotIcon, EnvelopeIcon } from '../icons/icons'
 import './footer.scss'
 
 function FacebookIcon() {
@@ -59,14 +60,14 @@ const Footer = () => {
     <footer className="footer-wrapper">
       <div className="footer">
         <div className="footer__col-one">
-          <i className="fa-solid fa-bread-slice fa-2x"></i>
+          <BreadSliceIcon size="2x" />
           <address className="footer__address">
             <span>
-              <i className="fa-solid fa-location-dot fa-lg"></i>North Wales, UK
+              <LocationDotIcon size="lg" />North Wales, UK
             </span>
           </address>
           <a href="mailto:email@email.com" className="footer__email">
-            <i className="fa-regular fa-envelope fa-lg"></i>
+            <EnvelopeIcon size="lg" />
             infowaffleandtoast@gmail.com
           </a>
         </div>

@@ -42,15 +42,15 @@ const ModalShowcase = ({ selectedIndex, onClose }) => {
         <div className="modal-showcase__images">
           {item.video1
             ? <video src={VIDEO_MAP[item.video1]} className="modal-showcase__video" autoPlay muted loop playsInline />
-            : <img src={IMAGE_MAP[item.image1]} alt="" className="modal-showcase__image" />
+            : <img src={IMAGE_MAP[item.image1]} alt="" className="modal-showcase__image" loading="lazy" decoding="async" />
           }
           {item.video2
             ? <video src={VIDEO_MAP[item.video2]} className="modal-showcase__video" autoPlay muted loop playsInline />
-            : <img src={IMAGE_MAP[item.image2]} alt="" className="modal-showcase__image" />
+            : <img src={IMAGE_MAP[item.image2]} alt="" className="modal-showcase__image" loading="lazy" decoding="async" />
           }
           {item.video3
             ? <video src={VIDEO_MAP[item.video3]} className="modal-showcase__video" autoPlay muted loop playsInline />
-            : <img src={IMAGE_MAP[item.image3]} alt="" className="modal-showcase__image" />
+            : <img src={IMAGE_MAP[item.image3]} alt="" className="modal-showcase__image" loading="lazy" decoding="async" />
           }
         </div>
         {websiteInfo?.url && (

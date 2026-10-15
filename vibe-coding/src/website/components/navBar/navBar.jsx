@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import GetInTouchModal from '../getInTouchModal/getInTouchModal'
 import { SECTION_LINKS } from './sectionLinks'
+import { BreadSliceIcon, BarsIcon, MobileButtonIcon, XmarkIcon } from '../icons/icons'
 import './navBar.scss'
 
 const NavBar = () => {
@@ -74,7 +75,7 @@ const NavBar = () => {
       <div className={`nav-wrapper${scrolled ? ' nav-wrapper--scrolled' : ''}`}>
         <nav className="nav">
           <NavLink to="/" className="nav__logo" aria-label="Home">
-            <i className="fa-solid fa-bread-slice"></i>
+            <BreadSliceIcon />
           </NavLink>
 
           <div className="nav__links">
@@ -87,12 +88,12 @@ const NavBar = () => {
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
-              <i className="fa-solid fa-bars"></i>
+              <BarsIcon />
             </button>
 
             <button className="nav__phone" onClick={() => setModalOpen(true)}>
               <div className="nav__phone-icon">
-                <i className="fa-solid fa-mobile-button"></i>
+                <MobileButtonIcon />
               </div>
             </button>
           </div>
@@ -105,7 +106,7 @@ const NavBar = () => {
       )}
       <div className={`nav__panel${menuOpen ? ' nav__panel--open' : ''}`}>
         <button className="nav__panel-close" onClick={closeMenu} aria-label="Close menu">
-          <i className="fa-solid fa-xmark"></i>
+          <XmarkIcon />
         </button>
         {renderSectionLinks()}
       </div>

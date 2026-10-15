@@ -1,0 +1,17 @@
+// Sizing matches the Font Awesome classes these icons replaced
+.icon {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+.icon--lg {
+  font-size: 1.25em;
+  vertical-align: -0.2em;
+}
+
+.icon--2x {
+  font-size: 2em;
+}
